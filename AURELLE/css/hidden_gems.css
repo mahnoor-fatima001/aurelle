@@ -1,0 +1,549 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* GENERAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background: #08121b;
+    color: white;
+}
+
+/* BACKGROUND */
+
+.hidden-gems-page {
+    background-image: url("../assets/images/A\ Quiet\ Cozy\ Fantasy\ Village.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.gems-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 42, 29, 0.67) 0%,
+            rgba(19, 33, 65, 0.70) 50%,
+            rgba(8, 15, 27, 0.76) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(2, 4, 43, 0.85),
+            transparent 70%
+        );
+
+    backdrop-filter: saturate(75%) brightness(85%);
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    animation: slideDown 1s ease;
+}
+
+.nav_bar {
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 37px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fefae0;
+    white-space: nowrap;
+}
+
+.navigation_links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.link {
+    position: relative;
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: #fefae0;
+    transition: width 0.3s ease;
+}
+
+.link:hover {
+    color: #d0eaf9;
+}
+
+.link.active {
+    color: #d0eaf9;
+}
+
+.link:hover::after,
+.link.active::after {
+    width: 100%;
+}
+
+/* MAIN */
+
+.main {
+    flex: 1;
+    width: min(1100px, 86%);
+    margin: 0 auto;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    max-width: 800px;
+    margin: 85px auto 110px;
+    padding: 20px;
+    text-align: center;
+    animation: fadeUp 1.2s ease;
+}
+
+.eyebrow {
+    margin-bottom: 20px;
+    color: #c4d6d5;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.intro h1 {
+    margin-bottom: 25px;
+    color: #fefae0;
+    font-size: clamp(45px, 8vw, 82px);
+    font-weight: 700;
+    letter-spacing: 10px;
+    line-height: 1.2;
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #e0e8e9;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+/* BUTTON */
+
+.discover-button {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    background: #fefae0;
+    color: #101c27;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.discover-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* HIDDEN PLACES */
+
+.hidden-places {
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+    padding-bottom: 50px;
+}
+
+/* GEM CARD */
+
+.gem-card {
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+    background: rgba(5, 15, 26, 0.48);
+    backdrop-filter: blur(8px);
+    animation: fadeUp 1s ease both;
+    transition: background 0.3s ease;
+    
+}
+
+.gem-card:hover {
+    background: rgba(5, 15, 26, 0.60);
+}
+
+/* PLACE HEADING */
+
+.gem-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.gem-number {
+    color: #b7d5d1;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.gem-location {
+    margin-bottom: 5px;
+    color: #b7d5d1;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.gem-heading h2 {
+    color: #fefae0;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* DESCRIPTION */
+
+.gem-description {
+    max-width: 900px;
+    margin-bottom: 30px;
+    color: #d4dfe5;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2.1;
+}
+
+/* IMAGE GALLERY */
+
+.gem-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 35px 0;
+}
+
+.gem-gallery img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+    filter: brightness(0.82);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.gem-gallery img:hover {
+    transform: translateY(-7px);
+    filter: brightness(1);
+}
+
+/* PLACE DETAILS */
+
+.gem-details {
+    margin-top: 30px;
+}
+
+.gem-details h3 {
+    margin-bottom: 20px;
+    color: #fefae0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.gem-details ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 30px;
+    list-style: none;
+}
+
+.gem-details li {
+    position: relative;
+    padding-left: 18px;
+    color: #d4dfe5;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.gem-details li::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #b7d5d1;
+}
+
+.gem-details strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* CLOSING SECTION */
+
+.gem-ending {
+    max-width: 750px;
+    margin: 100px auto 90px;
+    padding: 55px 25px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.gem-ending h2 {
+    margin-bottom: 20px;
+    color: #fefae0;
+    font-size: clamp(27px, 5vw, 42px);
+    font-weight: 500;
+}
+
+.gem-ending p:not(.eyebrow) {
+    margin-bottom: 30px;
+    color: #d4dfe5;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #08121b;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 20px 7%;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer_text,
+.copyright {
+    color: #c5d0da;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+
+@media screen and (max-width: 1000px) {
+
+    .nav_bar {
+        padding: 22px 4%;
+    }
+
+    .navigation_links {
+        gap: 17px;
+    }
+
+    .link {
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .gem-gallery img {
+        height: 200px;
+    }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .hidden-gems-page {
+        background-attachment: scroll;
+    }
+
+    .nav_bar {
+        flex-direction: column;
+        gap: 22px;
+        padding: 22px 15px;
+    }
+
+    .navigation_links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px 22px;
+    }
+
+    .link {
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .main {
+        width: 92%;
+    }
+
+    .intro {
+        margin: 55px auto 75px;
+    }
+
+    .intro h1 {
+        font-size: 43px;
+        letter-spacing: 5px;
+    }
+
+    .intro-text {
+        font-size: 12px;
+    }
+
+    .gem-card {
+        padding: 23px;
+    }
+
+    .gem-heading h2 {
+        font-size: 28px;
+    }
+
+    .gem-description {
+        font-size: 12px;
+    }
+
+    .gem-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .gem-gallery img {
+        height: 170px;
+    }
+
+    .gem-details ul {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media screen and (max-width: 400px) {
+
+    .navigation_links {
+        gap: 15px;
+    }
+
+    .link {
+        font-size: 10px;
+    }
+
+    .intro h1 {
+        font-size: 34px;
+        letter-spacing: 4px;
+    }
+
+    .gem-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gem-gallery img {
+        height: 220px;
+    }
+
+    .gem-card {
+        padding: 18px;
+    }
+
+    .gem-heading h2 {
+        font-size: 24px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

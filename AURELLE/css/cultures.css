@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==============================
+   GENERAL RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+
+    background: url("../assets/images/Philippines.jpg") center / cover no-repeat fixed;
+}
+
+/* ==============================
+   BACKGROUND OVERLAY
+============================== */
+
+.culture-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 42, 29, 0.65),
+            rgba(19, 33, 65, 0.70),
+            rgba(8, 15, 27, 0.75)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(2, 4, 43, 0.85),
+            rgba(2, 4, 43, 0.15)
+        );
+
+    backdrop-filter: saturate(75%) brightness(85%);
+}
+
+/* ==============================
+   HEADER & NAVIGATION
+============================== */
+
+.header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    animation: slideDown 0.8s ease both;
+}
+
+.nav_bar {
+    width: 100%;
+    padding: 24px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    color: #fefae0;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+.navigation_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.link {
+    position: relative;
+    color: #f0f0f0;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fefae0;
+    transition: width 0.3s ease;
+}
+
+.link:hover,
+.link.active {
+    color: #d0eaf9;
+}
+
+.link:hover::after,
+.link.active::after {
+    width: 100%;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 86%);
+    margin: 45px auto 80px;
+    flex: 1;
+}
+
+/* ==============================
+   INTRODUCTION
+============================== */
+
+.intro {
+    max-width: 780px;
+    margin: 65px auto 100px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+    color: #c4d6d5;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.intro h1 {
+    margin-bottom: 25px;
+    font-size: clamp(45px, 8vw, 85px);
+    font-weight: 700;
+    letter-spacing: 12px;
+    line-height: 1.1;
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: auto;
+    color: #d6e0e6;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+}
+
+/* ==============================
+   CULTURE SECTIONS
+============================== */
+
+.culture-section {
+    margin-bottom: 80px;
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+    background: rgba(5, 15, 26, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: fadeUp 0.8s ease both;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.section-number {
+    color: #b7d5d1;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    color: #fefae0;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.culture-description {
+    max-width: 900px;
+    margin-bottom: 30px;
+    color: #d4dfe5;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2.1;
+}
+
+/* ==============================
+   IMAGE GALLERY
+============================== */
+
+.culture-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin: 35px 0;
+}
+
+.culture-gallery img {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    border-radius: 18px;
+    filter: brightness(0.82);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.culture-gallery img:hover {
+    transform: translateY(-6px);
+    filter: brightness(1);
+}
+
+/* ==============================
+   CULTURAL ELEMENTS
+============================== */
+
+.cutural-elements {
+    margin-top: 30px;
+}
+
+.cutural-elements h3 {
+    margin-bottom: 18px;
+    color: #fefae0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.cutural-elements ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 30px;
+    list-style: none;
+}
+
+.cutural-elements li {
+    position: relative;
+    padding-left: 18px;
+    color: #d4dfe5;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.cutural-elements li::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #b7d5d1;
+}
+
+.cutural-elements strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* ==============================
+   ENDING SECTION
+============================== */
+
+.culture-ending {
+    max-width: 750px;
+    margin: 100px auto 70px;
+    padding: 55px 25px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.culture-ending h2 {
+    margin-bottom: 18px;
+    color: #fefae0;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 500;
+}
+
+.culture-ending p:not(.eyebrow) {
+    margin-bottom: 30px;
+    color: #d4dfe5;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 64px;
+    background: #fefae0;
+    color: #101c27;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease,
+                transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-button:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: auto;
+    padding: 20px 7%;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: #08121b;
+}
+
+.footer_text,
+.copyright {
+    color: #c5d0da;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ==============================
+   ANIMATIONS
+============================== */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   TABLET RESPONSIVENESS
+============================== */
+
+@media screen and (max-width: 1024px) {
+
+    .nav_bar {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .navigation_links {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .culture-section {
+        padding: 32px;
+    }
+
+    .culture-gallery img {
+        height: 210px;
+    }
+
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+============================== */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .nav_bar {
+        padding: 22px 5%;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .navigation_links {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .link {
+        font-size: 11px;
+    }
+
+    .main {
+        width: 92%;
+        margin: 30px auto 60px;
+    }
+
+    .intro {
+        margin: 45px auto 65px;
+    }
+
+    .intro h1 {
+        font-size: clamp(38px, 9vw, 60px);
+        letter-spacing: 6px;
+    }
+
+    .intro-text {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .culture-section {
+        padding: 25px;
+        margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .culture-description {
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .culture-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .culture-gallery img {
+        height: 180px;
+    }
+
+    .cutural-elements ul {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-ending {
+        margin: 70px auto 50px;
+        padding: 40px 20px;
+    }
+
+    .footer {
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+
+/* ==============================
+   SMALL MOBILE SCREENS
+============================== */
+
+@media screen and (max-width: 480px) {
+
+    .logo {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .navigation_links {
+        gap: 12px 15px;
+    }
+
+    .link {
+        font-size: 10px;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .intro h1 {
+        font-size: 38px;
+        letter-spacing: 4px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .culture-section {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .culture-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-gallery img {
+        height: 220px;
+    }
+
+    .cutural-elements h3 {
+        font-size: 16px;
+    }
+
+    .culture-ending h2 {
+        font-size: 27px;
+    }
+
+    .explore-button {
+        padding: 12px 25px;
+    }
+
+    .footer {
+        padding: 18px 5%;
+    }
+
+}
+
+/* ==============================
+   ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* TABLET */
+@media screen and (max-width: 1024px) {
+    body {
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+    body {
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}
+
+/* SMALL MOBILE */
+@media screen and (max-width: 480px) {
+    body {
+        background-position: center top;
+        background-size: auto 100vh;
+        background-repeat: no-repeat;
+    }
+}
